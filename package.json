@@ -1,0 +1,49 @@
+{
+  "name": "request-mocha",
+  "description": "Request utilities for Mocha",
+  "version": "0.1.0",
+  "homepage": "https://github.com/uber/request-mocha",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uber/request-mocha.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uber/request-mocha/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/uber/request-mocha/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/request-mocha",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt jshint && mocha"
+  },
+  "dependencies": {
+    "request": "~2.33.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.11.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-cli": "~0.1.13",
+    "express": "~3.4.8",
+    "chai": "~1.9.0"
+  },
+  "keywords": [
+    "request",
+    "mocha",
+    "test",
+    "utilities"
+  ]
+}
