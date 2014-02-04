@@ -12,7 +12,8 @@ Install the module with: `npm install request-mocha`
 
 ```javascript
 // In your test suite
-var httpUtils = require('request-mocha');
+var request = require('request');
+var httpUtils = require('request-mocha')(request);
 describe('A server receiving a request', function () {
   before(startServer);
 
@@ -29,9 +30,18 @@ describe('A server receiving a request', function () {
 ```
 
 ## Documentation
-`request-mocha` provides an object containing two functions as its `exports`.
+`request-mocha` provides a function, `requestMocha`, as its `module.exports`.
 
-### `exports.save(options)`
+### `requestMocha(request)`
+Create a set of utilities bound to a specific version of `request`.
+
+> This interface is necessary to prevent cross-version conflicts (e.g. `jar` problems)
+
+- request `Request` - `request` library to use for utility functions
+
+`requestMocha` returns an object which we will refer to as `httpUtils`.
+
+#### `httpUtils.save(options)`
 Make a request to a server via [request][] inside of a [mocha][] `before/setup` block.
 
 - options `Object` - Parameters to pass through to [request's][request] `request` function
@@ -42,12 +52,12 @@ Results will be saved to mocha's `this` context. The same `this` context is shar
 - this.res `Response` - Response from the server
 - this.body `String` - Response body from the server (alias for `res.body`)
 
-### `exports._save(options)`
+#### `httpUtils._save(options)`
 Invoke `request/save` mechanism without `before/setup` wrapper.
 
-The parameters are the same as `exports.save`.
+The parameters are the same as `httpUtils.save`.
 
-The returned value is a `function` with a signature of `(done)`. When invoked, it will write to `this.err`, `this.res`, and `this.body` as done in `exports.save`.
+The returned value is a `function` with a signature of `(done)`. When invoked, it will write to `this.err`, `this.res`, and `this.body` as done in `httpUtils.save`.
 
 It is expected that you invoke the returned function via a `.call` or `.apply` to an asynchronous `before` context with its callback. This is practical when there is data locked into a `this` context that needs to be used for a `request`.
 
