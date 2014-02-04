@@ -28,9 +28,7 @@
   "scripts": {
     "test": "grunt jshint && mocha"
   },
-  "dependencies": {
-    "request": "~2.33.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "~1.11.0",
     "grunt": "~0.4.1",
@@ -38,7 +36,8 @@
     "grunt-contrib-watch": "~0.4.0",
     "grunt-cli": "~0.1.13",
     "express": "~3.4.8",
-    "chai": "~1.9.0"
+    "chai": "~1.9.0",
+    "request": "~2.33.0"
   },
   "keywords": [
     "request",

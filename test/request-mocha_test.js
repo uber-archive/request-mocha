@@ -1,6 +1,7 @@
 var express = require('express');
 var expect = require('chai').expect;
-var httpUtils = require('../');
+var request = require('request');
+var httpUtils = require('../')(request);
 
 describe('`httpUtils` requesting to a server', function () {
   before(function () {
